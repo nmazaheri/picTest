@@ -2,11 +2,12 @@ package tech.picnic.assignment.model;
 
 import java.util.Objects;
 
+@SuppressWarnings("unused")
 public class Picker {
 
     private String id;
     private String name;
-    private String active_since;
+    private String activeSince;
 
     public String getId() {
         return id;
@@ -24,12 +25,12 @@ public class Picker {
         this.name = name;
     }
 
-    public String getActive_since() {
-        return active_since;
+    public String getActiveSince() {
+        return activeSince;
     }
 
-    public void setActive_since(String active_since) {
-        this.active_since = active_since;
+    public void setActiveSince(String activeSince) {
+        this.activeSince = activeSince;
     }
 
     @Override
@@ -39,11 +40,11 @@ public class Picker {
         Picker picker = (Picker) o;
         return id.equals(picker.id) &&
                 name.equals(picker.name) &&
-                active_since.equals(picker.active_since);
+                activeSince.equals(picker.activeSince);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, active_since);
+        return Objects.hash(id, name, activeSince);
     }
 }

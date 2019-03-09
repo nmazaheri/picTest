@@ -1,29 +1,22 @@
 package tech.picnic.assignment.model;
 
-import java.util.Comparator;
-
+@SuppressWarnings("unused")
 public class OutputPick {
 
-    private String article_name;
+    private String articleName;
     private String timestamp;
 
-    public OutputPick(String article_name, String timestamp) {
-        this.article_name = article_name;
+    public OutputPick(String articleName, String timestamp) {
+        this.articleName = articleName;
         this.timestamp = timestamp;
     }
 
-    public String getArticle_name() {
-        return article_name.toUpperCase();
+    public String getArticleName() {
+        return articleName.toUpperCase();
     }
 
     public String getTimestamp() {
         return timestamp;
     }
 
-    public static class TimestampComparator implements Comparator<OutputPick> {
-        @Override
-        public int compare(OutputPick o1, OutputPick o2) {
-            return o1.timestamp.compareTo(o2.timestamp);
-        }
-    }
 }

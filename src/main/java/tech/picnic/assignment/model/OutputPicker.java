@@ -1,19 +1,26 @@
 package tech.picnic.assignment.model;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
+
+@SuppressWarnings("unused")
 public class OutputPicker {
 
-    private String picker_name;
-    private String active_since;
+    private String pickerName;
+    private String activeSince;
     private String id;
-    private List<OutputPick> picks = new ArrayList<>();
+    private Set<OutputPick> picks = new TreeSet<>(getComparator());
 
-    public OutputPicker(String picker_name, String active_since, String id) {
-        this.picker_name = picker_name;
-        this.active_since = active_since;
+    private static Comparator<OutputPick> getComparator() {
+        return Comparator.comparing(OutputPick::getTimestamp);
+    }
+
+    public OutputPicker(String pickerName, String activeSince, String id) {
+        this.pickerName = pickerName;
+        this.activeSince = activeSince;
         this.id = id;
     }
 
@@ -22,25 +29,20 @@ public class OutputPicker {
         picks.add(outputPick);
     }
 
-    public String getPicker_name() {
-        return picker_name;
+    public String getPickerName() {
+        return pickerName;
     }
 
-    public String getActive_since() {
-        return active_since;
+    public String getActiveSince() {
+        return activeSince;
     }
 
-    public List<OutputPick> getPicks() {
+    @JsonIgnore
+    public String getId() {
+        return id;
+    }
+
+    public Set<OutputPick> getPicks() {
         return picks;
-    }
-
-    public static class ActiveSinceComparator implements Comparator<OutputPicker> {
-        @Override
-        public int compare(OutputPicker o1, OutputPicker o2) {
-            if (o1.active_since.equals(o2.active_since)) {
-                return o1.id.compareTo(o2.id);
-            }
-            return o1.active_since.compareTo(o2.active_since);
-        }
     }
 }

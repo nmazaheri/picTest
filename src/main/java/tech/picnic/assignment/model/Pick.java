@@ -1,5 +1,6 @@
 package tech.picnic.assignment.model;
 
+@SuppressWarnings("unused")
 public class Pick {
 
     private String timestamp;

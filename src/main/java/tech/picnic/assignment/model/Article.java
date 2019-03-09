@@ -2,11 +2,12 @@ package tech.picnic.assignment.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@SuppressWarnings("unused")
 public class Article {
 
     private String id;
     private String name;
-    private TemperatureZone temperature_zone;
+    private TemperatureZone temperatureZone;
 
     public void setId(String id) {
         this.id = id;
@@ -20,12 +21,12 @@ public class Article {
         this.name = name;
     }
 
-    public TemperatureZone getTemperature_zone() {
-        return temperature_zone;
+    public TemperatureZone getTemperatureZone() {
+        return temperatureZone;
     }
 
-    public void setTemperature_zone(TemperatureZone temperature_zone) {
-        this.temperature_zone = temperature_zone;
+    public void setTemperatureZone(TemperatureZone temperatureZone) {
+        this.temperatureZone = temperatureZone;
     }
 
     public enum TemperatureZone {
